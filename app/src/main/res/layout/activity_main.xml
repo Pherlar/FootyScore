@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="507dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/goalpostsedit" />
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        android:layout_weight = "1">
+
+
+        <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/teamAName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:text="Home"
+                android:textColor="@android:color/background_light"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/teamAScoreLine1"
+                android:layout_below="@+id/teamAName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:text="score"
+                android:paddingTop="20dp"
+                android:textColor="@android:color/holo_orange_light"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/teamAScoreLine2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/teamAScoreLine1"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:paddingVertical="10dp"
+                android:text="score"
+                android:textColor="@android:color/holo_orange_light"
+                android:textSize="56sp" />
+
+            <Button
+                android:id="@+id/behindAButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/goalAButton"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+
+                android:padding="24dp"
+                android:text="Behind"
+                android:background="#90424242"
+                android:textColor="@android:color/background_light" />
+
+            <Button
+                android:id="@+id/goalAButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="24dp"
+                android:layout_above="@+id/greyLineA"
+                android:text="Goal"
+                android:layout_margin="5dp"
+                android:background="#90424242"
+                android:textColor="@android:color/background_light"/>
+
+            <TextView
+                android:id="@+id/greyLineA"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_above="@+id/undoButton"
+                android:background="#90424242"
+                android:layout_margin="20dp"
+                />
+
+            <Button
+                android:id="@+id/undoButton"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="10dp"
+                android:text="Undo"
+                android:background="#90424242"
+                android:textColor="@android:color/background_light"/>
+
+
+
+
+        </RelativeLayout>
+
+
+
+            <RelativeLayout
+
+                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/teamName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="10dp"
+                    android:text="Away"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/teamBScoreLine1"
+                    android:layout_below="@+id/teamName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="score"
+                    android:paddingTop="20dp"
+                    android:textColor="@android:color/holo_orange_light"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/teamBScoreLine2"
+                    android:layout_below="@+id/teamBScoreLine1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:paddingVertical="10dp"
+                    android:text="score"
+                    android:textColor="@android:color/holo_orange_light"
+                    android:textSize="56sp" />
+
+                <Button
+                    android:id="@+id/behindBButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/goalBButton"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+
+
+                    android:padding="24dp"
+                    android:text="Behind"
+                    android:background="#90424242"
+                    android:textColor="@android:color/background_light" />
+
+                <Button
+                    android:id="@+id/goalBButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp"
+                    android:layout_above="@+id/greyLine1"
+                    android:text="Goal"
+                    android:layout_margin="5dp"
+                    android:background="#90424242"
+                    android:textColor="@android:color/background_light"/>
+
+                <TextView
+                    android:id="@+id/greyLine1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_above="@+id/resetButton"
+                    android:background="#90424242"
+                    android:layout_margin="20dp"
+                    />
+
+                <Button
+                    android:id="@+id/resetButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="10dp"
+                    android:text="Reset"
+                    android:background="#90424242"
+                    android:textColor="@android:color/background_light"/>
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+        </LinearLayout>
+
+
+
+</LinearLayout>
+
+     </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
