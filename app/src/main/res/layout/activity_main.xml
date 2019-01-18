@@ -8,9 +8,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="507dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -52,7 +53,7 @@
                 android:layout_gravity="center"
                 android:gravity="center_horizontal"
                 android:text="score"
-                android:paddingTop="20dp"
+                android:paddingTop="30dp"
                 android:textColor="@android:color/holo_orange_light"
                 android:textSize="24sp" />
 
@@ -79,22 +80,29 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
-
+                android:background="#90424242"
+                android:onClick="teamAbehindButton"
                 android:padding="24dp"
                 android:text="Behind"
-                android:background="#90424242"
                 android:textColor="@android:color/background_light" />
 
             <Button
                 android:id="@+id/goalAButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="24dp"
                 android:layout_above="@+id/greyLineA"
-                android:text="Goal"
-                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
                 android:background="#90424242"
-                android:textColor="@android:color/background_light"/>
+                android:onClick="teamAGoalButton"
+                android:padding="24dp"
+                android:text="Goal!"
+                android:textColor="@android:color/background_light"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/greyLineA"
@@ -148,7 +156,7 @@
                     android:layout_gravity="center"
                     android:gravity="center_horizontal"
                     android:text="score"
-                    android:paddingTop="20dp"
+                    android:paddingTop="30dp"
                     android:textColor="@android:color/holo_orange_light"
                     android:textSize="24sp" />
 
@@ -175,23 +183,29 @@
                     android:layout_marginEnd="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
-
-
+                    android:background="#90424242"
+                    android:onClick="teamBbehindButton"
                     android:padding="24dp"
                     android:text="Behind"
-                    android:background="#90424242"
                     android:textColor="@android:color/background_light" />
 
                 <Button
                     android:id="@+id/goalBButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="24dp"
                     android:layout_above="@+id/greyLine1"
-                    android:text="Goal"
-                    android:layout_margin="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
                     android:background="#90424242"
-                    android:textColor="@android:color/background_light"/>
+                    android:onClick="teamBgoalButton"
+                    android:padding="24dp"
+                    android:text="Goal!"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/greyLine1"
@@ -207,10 +221,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:layout_alignParentBottom="true"
-                    android:layout_margin="10dp"
-                    android:text="Reset"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
                     android:background="#90424242"
-                    android:textColor="@android:color/background_light"/>
+                    android:onClick="resetScoresButton"
+                    android:text="Reset"
+                    android:textColor="@android:color/background_light" />
 
 
 
@@ -224,9 +244,5 @@
 
 
 
-</LinearLayout>
-
-     </LinearLayout>
-
-
 </android.support.constraint.ConstraintLayout>
+
