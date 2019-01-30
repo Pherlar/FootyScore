@@ -5,13 +5,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Iterator;
+import java.util.Stack;
+
 public class MainActivity extends AppCompatActivity
 {
-    //declare public variables
-    int teamAgoals = 0;
-    int teamAbehinds = 0;
-    int teamBgoals = 0;
-    int teamBbehinds = 0;
+    TextView TeamA_gbScore;
+    TextView TeamA_sumScore;
+    TextView TeamB_gbScore;
+    TextView TeamB_sumScore;
+
+    Stack<Integer> scoreStack;
+
 
 
 
@@ -20,6 +25,12 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TeamA_gbScore = findViewById(R.id.teamAScoreLine1);
+        TeamA_sumScore = findViewById(R.id.teamAScoreLine2);
+        TeamB_gbScore = findViewById(R.id.teamBScoreLine1);
+        TeamB_sumScore = findViewById(R.id.teamBScoreLine2);
+
+        scoreStack = new Stack<>();
         resetScores();
 
 
@@ -28,73 +39,79 @@ public class MainActivity extends AppCompatActivity
 
     //method to reset all values to 0 and update screen
     public void resetScores (){
-        teamAgoals = 0;
-        teamAbehinds = 0;
-        teamBgoals = 0;
-        teamBbehinds = 0;
+        scoreStack.clear();
         updateScore();
-
     }
 
 
 
-    //Displays the Line 1  (goals and behinds) Score for Team A
 
-//    public void displayForTeamAscoreL1 (){
-//        TextView teamAScoreLine1 = findViewById(R.id.teamAScoreLine1);
-//        teamAScoreLine1.setText(String.valueOf(teamAbehinds)+ " . " +String.valueOf(teamAgoals));
-//    }
 
     //Displays the Line 2 (total) Score for Team A
     public void updateScore (){
-        TextView teamAScoreLine2 = findViewById(R.id.teamAScoreLine2);
-        teamAScoreLine2.setText(String.valueOf(teamAgoals * 6 + teamAbehinds));
-        TextView teamAScoreLine1 = findViewById(R.id.teamAScoreLine1);
-        teamAScoreLine1.setText(String.valueOf(teamAbehinds)+ " . " +String.valueOf(teamAgoals));
-        TextView teamBScoreLine1 = findViewById(R.id.teamBScoreLine1);
-        teamBScoreLine1.setText(String.valueOf(teamBbehinds)+ " . " +String.valueOf(teamBgoals));
-        TextView teamBScoreLine2 = findViewById(R.id.teamBScoreLine2);
-        teamBScoreLine2.setText(String.valueOf(teamBgoals * 6 + teamBbehinds));
+        int teamA_behind = 0;
+        int teamA_goal = 0;
+        int teamB_behind = 0;
+        int teamB_goal=0;
+
+        Iterator<Integer> iter = scoreStack.iterator();
+
+        while (iter.hasNext())
+        {
+            Integer scoreEntry = iter.next();
+            if (scoreEntry == 1)
+            {
+                teamA_behind ++;
+            }
+            else if (scoreEntry == 6)
+            {
+                teamA_goal ++;
+            }
+            else if (scoreEntry == -1)
+            {
+                teamB_behind ++;
+            }
+            else if (scoreEntry == -6)
+            {
+                teamB_goal ++;
+            }
+        }
+        TeamA_gbScore.setText(Integer.toString(teamA_behind) + " . " + Integer.toString(teamA_goal));
+        TeamA_sumScore.setText(Integer.toString(teamA_behind + teamA_goal*6));
+        TeamB_gbScore.setText(Integer.toString(teamB_behind) + " . " + Integer.toString(teamB_goal));
+        TeamB_sumScore.setText(Integer.toString(teamB_behind + teamB_goal*6));
+
 
     }
 
-    //Displays the Line 1  (goals and behinds) Score for Team B
 
-//    public void displayForTeamBscoreL1 (){
-//        TextView teamBScoreLine1 = findViewById(R.id.teamBScoreLine1);
-//        teamBScoreLine1.setText(String.valueOf(teamBbehinds)+ " . " +String.valueOf(teamBgoals));
-//    }
-
-
-    //Displays the Line 2 (total) Score for Team B
-//    public void displayForTeamBscoreL2 (){
-//        TextView teamBScoreLine2 = findViewById(R.id.teamBScoreLine2);
-//        teamBScoreLine2.setText(String.valueOf(teamBgoals * 6 + teamBbehinds));
-//    }
-
-    //runs on click of button teamAGoal
-    public void teamAGoalButton(View view){
-        teamAgoals = teamAgoals + 1;
-        updateScore();
-            }
 
     //runs on click of button teamAbehind
-    public void teamAbehindButton(View view){
-        teamAbehinds = teamAbehinds + 1;
+    public void teamA_BehindClick(View view){
+        scoreStack.push(1);
+        updateScore();
+    }
+
+
+    //runs on click of button teamAGoal
+    public void teamA_GoalClick(View view){
+        scoreStack.push(6);
+        updateScore();
+     }
+
+    //runs on click of button teamBbehind
+    public void teamB_BehindClick(View view){
+        scoreStack.push(-1);
         updateScore();
     }
 
     //runs on click of button teamBGoal
-    public void teamBgoalButton(View view){
-        teamBgoals = teamBgoals + 1;
+    public void teamB_GoalClick(View view){
+        scoreStack.push(-6);
         updateScore();
     }
 
-    //runs on click of button teamBbehind
-    public void teamBbehindButton(View view){
-        teamBbehinds = teamBbehinds + 1;
-        updateScore();
-    }
+
 
     //runs on click of resetScores
     public void resetScoresButton(View view){
