@@ -85,6 +85,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/teamAScoreLine1" />
 
+
             <Button
                 android:id="@+id/behindAButton"
                 android:layout_width="match_parent"
@@ -96,8 +97,8 @@
                 android:padding="15dp"
                 android:text="Behind"
                 android:textColor="@android:color/background_light"
-                app:layout_constraintBottom_toTopOf="@+id/goalAButton"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <Button
                 android:id="@+id/goalAButton"
@@ -110,8 +111,9 @@
                 android:text="Goal!"
                 android:textColor="@android:color/background_light"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintBottom_toTopOf="@+id/behindAButton"
+                app:layout_constraintEnd_toEndOf="parent" />
+
         </android.support.constraint.ConstraintLayout>
 
 
@@ -172,20 +174,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/teamBScoreLine1" />
 
             <Button
-                android:id="@+id/behindBButton"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_gravity="bottom"
-                android:layout_margin="10dp"
-                android:background="#90424242"
-                android:onClick="teamB_BehindClick"
-                android:padding="15dp"
-                android:text="Behind"
-                android:textColor="@android:color/background_light"
-                app:layout_constraintBottom_toTopOf="@+id/goalBButton"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <Button
                 android:id="@+id/goalBButton"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
@@ -196,8 +184,23 @@
                 android:text="Goal!"
                 android:textColor="@android:color/background_light"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/behindBButton"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <Button
+                android:id="@+id/behindBButton"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="bottom"
+                android:layout_margin="10dp"
+                android:background="#90424242"
+                android:onClick="teamB_BehindClick"
+                android:padding="15dp"
+                android:text="Behind"
+                android:textColor="@android:color/background_light"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
 
 
         </android.support.constraint.ConstraintLayout>
@@ -221,6 +224,7 @@
             android:layout_weight="1"
             android:background="#90424242"
             android:text="Undo"
+            android:onClick="undoClick"
             android:textColor="@android:color/background_light" />
 
         <Button
@@ -232,6 +236,7 @@
             android:layout_weight="1"
             android:background="#90424242"
             android:text="Redo"
+            android:onClick="redoClick"
             android:textColor="@android:color/background_light" />
 
         <Button
